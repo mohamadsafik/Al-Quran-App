@@ -6,8 +6,8 @@ import 'package:http/http.dart' as http;
 import '../model/detail_surah_model.dart';
 
 class QuranRepository {
+  QuranRepository();
   final String suratUrl = "https://equran.id/api/surat";
-  final String ayatUrl = "https://equran.id/api/surat/1";
 
   Future<List<SuratQuranModel>> getSurat() async {
     try {
@@ -27,10 +27,15 @@ class QuranRepository {
       rethrow;
     }
   }
+}
 
-  Future<DetailSurah> getAyat(String urlId) async {
+class DetailRepository {
+  String? urlId;
+
+  final String ayatUrl = "https://equran.id/api/surat/1";
+  Future<DetailSurah> getAyat() async {
     try {
-      final url = Uri.parse("https://equran.id/api/surat/$urlId");
+      final url = Uri.parse("https://equran.id/api/surat/1");
       final response = await http.get(
         url,
       );

@@ -6,9 +6,8 @@ class AyatLoadingState extends AyatState {}
 
 class AyatLoadedState extends AyatState {
   final DetailSurah detailSurah;
-  final String urlId;
 
-  AyatLoadedState({required this.detailSurah, required this.urlId});
+  AyatLoadedState({required this.detailSurah});
 }
 
 class AyatErrorState extends AyatState {}

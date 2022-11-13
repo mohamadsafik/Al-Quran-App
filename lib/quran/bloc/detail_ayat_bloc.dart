@@ -5,15 +5,15 @@ import 'package:tests/quran/bloc/detail_ayat_state.dart';
 import '../repository/al_quran.dart';
 
 class AyatBloc extends Bloc<AyatEvent, AyatState> {
-  final quranRepository = QuranRepository();
+  final detailRepository = DetailRepository();
   AyatBloc() : super(AyatLoadingState()) {
     on<AyatEvent>((event, emit) async {
       if (state is AyatLoadedState) {
         emit(AyatLoadingState());
       }
       // try {
-      final detailSurah = await quranRepository.getAyat("1");
-      emit(AyatLoadedState(detailSurah: detailSurah, urlId: "1"));
+      final detailSurah = await detailRepository.getAyat();
+      emit(AyatLoadedState(detailSurah: detailSurah));
       // } catch (e) {
       // emit(AyatErrorState());
 

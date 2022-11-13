@@ -2,23 +2,28 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tests/quran/bloc/detail_ayat_bloc.dart';
+import 'package:tests/quran/model/surat_quran_model.dart';
+import 'package:tests/quran/theme.dart';
 
 import '../bloc/detail_ayat_state.dart';
 
-class ListAyatPage extends StatefulWidget {
-  const ListAyatPage({
-    super.key,
-  });
+class ListAyatPage extends StatelessWidget {
+  const ListAyatPage({super.key, required this.dataFromList});
+  final SuratQuranModel dataFromList;
 
-  @override
-  State<ListAyatPage> createState() => _ListAyatPageState();
-}
-
-class _ListAyatPageState extends State<ListAyatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: purpleColor,
+          title: Text(dataFromList.namaLatin!),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.search, size: 32),
+              onPressed: () {},
+            )
+          ],
+        ),
         body: BlocBuilder<AyatBloc, AyatState>(builder: (context, state) {
           if (state is AyatLoadedState) {
             return ListView.builder(
@@ -29,6 +34,7 @@ class _ListAyatPageState extends State<ListAyatPage> {
                     onTap: () {},
                     child: ListTile(
                       leading: CircleAvatar(
+                        backgroundColor: purpleColor,
                         child: Text(data.id.toString()),
                       ),
                       title: Text(data.ar.toString()),
