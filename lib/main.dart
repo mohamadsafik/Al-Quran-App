@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tests/list_location_page.dart';
-import 'package:tests/locations_bloc.dart';
-
-import 'package:tests/models/location_model.dart';
-import 'package:tests/location_event.dart';
-import 'package:tests/quran/bloc/detail_ayat_bloc.dart';
-import 'package:tests/quran/bloc/detail_ayat_event.dart';
-import 'package:tests/quran/bloc/surat_bloc.dart';
-import 'package:tests/quran/bloc/surat_event.dart';
+import 'package:tests/helpers/bloc_observer.dart';
+import 'package:tests/quran/bloc/detail_surah_bloc.dart';
+import 'package:tests/quran/bloc/detail_surah_event.dart';
+import 'package:tests/quran/bloc/list_surat_bloc.dart';
+import 'package:tests/quran/bloc/list_surat_event.dart';
 import 'package:tests/quran/views/list_surah.dart';
+import 'package:tests/trash/location_event.dart';
+import 'package:tests/trash/locations_bloc.dart';
 
 void main() {
+  Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
 
@@ -26,11 +25,11 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) =>
               LocationBloc()..add(LocationLoadEvent()),
         ),
-        BlocProvider<SuratBloc>(
-          create: (BuildContext context) => SuratBloc()..add(SuratLoadEvent()),
+        BlocProvider<ListSurahBloc>(
+          create: (BuildContext context) => ListSurahBloc()..add(ListSurahLoadedEvent()),
         ),
-        BlocProvider<AyatBloc>(
-          create: (BuildContext context) => AyatBloc()..add(AyatLoadedEvent(urlID: '1')),
+        BlocProvider<DetailSurahBloc>(
+          create: (BuildContext context) => DetailSurahBloc()..add(DetailSurahLoadedEvent(urlID: '1')),
         ),
       ],
       child: MaterialApp(

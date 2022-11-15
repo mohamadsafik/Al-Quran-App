@@ -1,4 +1,4 @@
-class SuratQuranModel {
+class ListSurahModel {
   int? nomor;
   String? nama;
   String? namaLatin;
@@ -8,7 +8,7 @@ class SuratQuranModel {
   String? deskripsi;
   String? audio;
 
-  SuratQuranModel(
+  ListSurahModel(
       {this.nomor,
       this.nama,
       this.namaLatin,
@@ -18,7 +18,7 @@ class SuratQuranModel {
       this.deskripsi,
       this.audio});
 
-  SuratQuranModel.fromJson(Map<String, dynamic> json) {
+  ListSurahModel.fromJson(Map<String, dynamic> json) {
     nomor = json['nomor'];
     nama = json['nama'];
     namaLatin = json['nama_latin'];

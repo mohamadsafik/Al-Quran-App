@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tests/locations_bloc.dart';
-import 'package:tests/models/location_model.dart';
-import 'package:tests/location_state.dart';
+import 'package:tests/trash/models/location_model.dart';
+import 'location_state.dart';
+import 'locations_bloc.dart';
 
 class ListLocationPage extends StatefulWidget {
   const ListLocationPage({super.key});
@@ -30,7 +28,7 @@ class _ListLocationPageState extends State<ListLocationPage> {
                 );
               });
         } else {
-          return CircularProgressIndicator.adaptive();
+          return const CircularProgressIndicator.adaptive();
         }
       }),
     );

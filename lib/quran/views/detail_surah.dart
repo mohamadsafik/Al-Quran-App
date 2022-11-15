@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:tests/quran/model/surat_quran_model.dart';
+import 'package:tests/model/list_surah_model.dart';
 import 'package:tests/quran/repository/al_quran.dart';
-import 'package:tests/quran/theme.dart';
+import 'package:tests/helpers/theme.dart';
 
 
 
 class DetailSurahPage extends StatefulWidget {
   const DetailSurahPage({super.key, required this.dataFromList});
-  final SuratQuranModel dataFromList;
+  final ListSurahModel dataFromList;
 
   @override
   State<DetailSurahPage> createState() => _DetailSurahPageState();
@@ -16,7 +16,7 @@ class DetailSurahPage extends StatefulWidget {
 class _DetailSurahPageState extends State<DetailSurahPage> {
   @override
   Widget build(BuildContext context) {
-    DetailRepository repo = DetailRepository();
+    QuranRepository repo = QuranRepository();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: purpleColor,

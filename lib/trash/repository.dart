@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:tests/models/location_model.dart';
+import 'package:tests/trash/models/location_model.dart';
 
 class LocationRepository {
   final String baseUrl =

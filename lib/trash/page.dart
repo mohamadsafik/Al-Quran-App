@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tests/repository.dart';
-import 'package:tests/models/location_model.dart';
+import 'package:tests/trash/models/location_model.dart';
+import 'package:tests/trash/repository.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

@@ -1,4 +1,4 @@
-import 'package:tests/models/location_model.dart';
+import 'package:tests/trash/models/location_model.dart';
 
 abstract class LocationState {}
 

@@ -1,7 +1,7 @@
-import 'package:tests/repository.dart';
-import 'package:tests/location_state.dart';
-import 'package:tests/location_event.dart';
 import 'package:bloc/bloc.dart';
+import 'package:tests/trash/location_event.dart';
+import 'package:tests/trash/location_state.dart';
+import 'package:tests/trash/repository.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   final locationRepository = LocationRepository();

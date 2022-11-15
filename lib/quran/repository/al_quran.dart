@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:tests/quran/model/surat_quran_model.dart';
+import 'package:tests/model/list_surah_model.dart';
 import 'package:http/http.dart' as http;
 
-import '../model/detail_surah_model.dart';
+import '../../model/detail_surah_model.dart';
 
 class QuranRepository {
   QuranRepository();
   final String suratUrl = "https://equran.id/api/surat";
 
-  Future<List<SuratQuranModel>> getSurat() async {
+  Future<List<ListSurahModel>> getListSurah() async {
     try {
       final url = Uri.parse(suratUrl);
       final response = await http.get(
@@ -18,7 +18,7 @@ class QuranRepository {
       if (response.statusCode == 200) {
         final json = jsonDecode(response.body) as List;
         final suratQuran =
-            json.map((e) => SuratQuranModel.fromJson(e)).toList();
+            json.map((e) => ListSurahModel.fromJson(e)).toList();
         return suratQuran;
       } else {
         throw Exception(response.body);
@@ -27,13 +27,7 @@ class QuranRepository {
       rethrow;
     }
   }
-}
-
-class DetailRepository {
-
-
-  // final String ayatUrl = "https://equran.id/api/surat/1";
-  Future<DetailSurah> detailSurah(String urlId) async {
+   Future<DetailSurah> detailSurah(String urlId) async {
     try {
       final url = Uri.parse("https://equran.id/api/surat/$urlId");
       final response = await http.get(
@@ -50,4 +44,8 @@ class DetailRepository {
       rethrow;
     }
   }
+}
+
+class DetailRepository {
+ 
 }
