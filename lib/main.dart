@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => SuratBloc()..add(SuratLoadEvent()),
         ),
         BlocProvider<AyatBloc>(
-          create: (BuildContext context) => AyatBloc()..add(AyatLoadedEvent()),
+          create: (BuildContext context) => AyatBloc()..add(AyatLoadedEvent(urlID: '1')),
         ),
       ],
       child: MaterialApp(

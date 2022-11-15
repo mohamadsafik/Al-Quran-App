@@ -12,7 +12,7 @@ class AyatBloc extends Bloc<AyatEvent, AyatState> {
         emit(AyatLoadingState());
       }
       // try {
-      final detailSurah = await detailRepository.getAyat();
+      final detailSurah = await detailRepository.detailSurah("1");
       emit(AyatLoadedState(detailSurah: detailSurah));
       // } catch (e) {
       // emit(AyatErrorState());

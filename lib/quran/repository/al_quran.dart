@@ -30,12 +30,12 @@ class QuranRepository {
 }
 
 class DetailRepository {
-  String? urlId;
 
-  final String ayatUrl = "https://equran.id/api/surat/1";
-  Future<DetailSurah> getAyat() async {
+
+  // final String ayatUrl = "https://equran.id/api/surat/1";
+  Future<DetailSurah> detailSurah(String urlId) async {
     try {
-      final url = Uri.parse("https://equran.id/api/surat/1");
+      final url = Uri.parse("https://equran.id/api/surat/$urlId");
       final response = await http.get(
         url,
       );

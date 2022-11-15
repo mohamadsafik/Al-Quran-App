@@ -10,7 +10,7 @@ class DetailSurah {
   bool? status;
   List<Ayat>? ayat;
   SuratSelanjutnya? suratSelanjutnya;
-  bool? suratSebelumnya;
+  // bool? suratSebelumnya;
 
   DetailSurah(
       {this.nomor,
@@ -24,7 +24,8 @@ class DetailSurah {
       this.status,
       this.ayat,
       this.suratSelanjutnya,
-      this.suratSebelumnya});
+      // this.suratSebelumnya
+      });
 
   DetailSurah.fromJson(Map<String, dynamic> json) {
     nomor = json['nomor'];
@@ -45,11 +46,11 @@ class DetailSurah {
     suratSelanjutnya = json['surat_selanjutnya'] != null
         ? SuratSelanjutnya.fromJson(json['surat_selanjutnya'])
         : null;
-    suratSebelumnya = json['surat_sebelumnya'];
+    // suratSebelumnya = json['surat_sebelumnya'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['nomor'] = nomor;
     data['nama'] = nama;
     data['nama_latin'] = namaLatin;
@@ -65,7 +66,7 @@ class DetailSurah {
     if (suratSelanjutnya != null) {
       data['surat_selanjutnya'] = suratSelanjutnya!.toJson();
     }
-    data['surat_sebelumnya'] = suratSebelumnya;
+    // data['surat_sebelumnya'] = suratSebelumnya;
     return data;
   }
 }
@@ -90,7 +91,7 @@ class Ayat {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['surah'] = surah;
     data['nomor'] = nomor;

@@ -56,7 +56,7 @@ class _ListSuratQuranState extends State<ListSuratQuran> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ListAyatPage(
+                                    builder: (context) => DetailSurahPage(
                                         dataFromList: state.suratQuran[index])),
                               );
                             },
@@ -65,11 +65,12 @@ class _ListSuratQuranState extends State<ListSuratQuran> {
                                 Image.asset("assets/list/number.png"),
                                 Positioned(
                                     top: 10,
-                                    left: 14,
+                                    left: 12,
                                     child: Text(data.nomor.toString())),
                               ]),
                               title: Text(data.namaLatin.toString()),
-                              subtitle: Text(data.nama.toString()),
+                              subtitle: Text(
+                                  "Total Ayat : ${data.jumlahAyat.toString()}"),
                               trailing: Wrap(spacing: 12, children: <Widget>[
                                 IconButton(
                                     onPressed: () {},

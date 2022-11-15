@@ -7,6 +7,7 @@ class AyatLoadingState extends AyatState {}
 class AyatLoadedState extends AyatState {
   final DetailSurah detailSurah;
 
+
   AyatLoadedState({required this.detailSurah});
 }
 
