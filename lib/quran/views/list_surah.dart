@@ -83,9 +83,8 @@ class _ListSuratQuranState extends State<ListSuratQuran> {
                         });
                   } else {
                     
-                    return Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
+                    return 
+            Column(
               children: [
                 ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
@@ -118,7 +117,7 @@ class _ListSuratQuranState extends State<ListSuratQuran> {
                     ); },
                     
                   ),
-                ]));
+                ]);
                   }
                 }),
               ],
