@@ -7,6 +7,7 @@ import 'package:tests/quran/bloc/surat_state.dart';
 import 'package:tests/quran/model/surat_quran_model.dart';
 import 'package:tests/quran/theme.dart';
 import 'package:tests/quran/views/detail_surah.dart';
+import 'package:shimmer/shimmer.dart';
 
 class ListSuratQuran extends StatefulWidget {
   const ListSuratQuran({super.key});
@@ -81,8 +82,43 @@ class _ListSuratQuranState extends State<ListSuratQuran> {
                           );
                         });
                   } else {
-                    return const Center(
-                        child: CircularProgressIndicator.adaptive());
+                    
+                    return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: [
+                ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: 8,
+                    itemBuilder: (BuildContext context, int index) {return Shimmer.fromColors(
+                  baseColor: Colors.grey.withOpacity(0.5),
+                  highlightColor: Colors.white,
+                      child: ListTile(textColor:  Colors.grey.withOpacity(0.5),
+                      iconColor: Colors.grey.withOpacity(0.5),
+                                  leading: Stack(children: [
+                                    Image.asset("assets/list/number.png",color: Colors.grey.withOpacity(0.5),),
+                                     Positioned(
+                                        top: 10,
+                                        left: 12,
+                                        child: Container(color: Colors.grey.withOpacity(0.5),child: Text(""))),
+                                  ]),
+                                  title: Container(color: Colors.grey.withOpacity(0.5),child: const Text("")),
+                                  subtitle: Container(color: Colors.grey.withOpacity(0.5),
+                                    child: const Text(
+                                        ""),
+                                  ),
+                                  trailing: Wrap(spacing: 12, children: <Widget>[
+                                    IconButton(
+                                        onPressed: () {},
+                                        icon:  const Icon(
+                                            Icons.navigate_next_outlined)),
+                                  ]),
+                                ),
+                    ); },
+                    
+                  ),
+                ]));
                   }
                 }),
               ],

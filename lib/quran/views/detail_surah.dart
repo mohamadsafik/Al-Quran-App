@@ -45,7 +45,7 @@ class _DetailSurahPageState extends State<DetailSurahPage> {
                                 child: Text(data.nomor.toString(), textAlign: TextAlign.end,),
                               ),
                               title: Text(data.ar.toString()),
-                              subtitle: Text(data.nomor.toString()),
+                              subtitle: Text(data.id.toString()),
                              
                             ),
                           );
